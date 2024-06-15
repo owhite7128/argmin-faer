@@ -31,6 +31,10 @@ ndarray-linalg_0_13 = { package = "ndarray-linalg", version = "0.13", optional =
 ndarray_0_13 = { package = "ndarray", version = "0.13", optional = true }
 ndarray-linalg_0_12 = { package = "ndarray-linalg", version = "0.12", optional = true }
 
+# faer
+faer = { package = "faer", version = "0.19", optional = true }
+faer-ext = { package = "faer-ext", version = "0.2.0", optional = true, features = ["ndarray"] }
+
 # general
 num-complex_0_4 = { package = "num-complex", version = "0.4", optional = true, default-features = false, features = ["std"] }
 num-complex_0_3 = { package = "num-complex", version = "0.3", optional = true, default-features = false, features = ["std"] }
@@ -79,6 +83,12 @@ ndarray_latest-nolinalg = ["ndarray_v0_15-nolinalg"]
 ndarray_v0_15-nolinalg = ["ndarray_0_15", "num-complex_0_4", "ndarray_all"]
 ndarray_v0_14-nolinalg = ["ndarray_0_14", "num-complex_0_3", "ndarray_all"]
 ndarray_v0_13-nolinalg = ["ndarray_0_13", "num-complex_0_2", "ndarray_all"]
+
+## With `faer` linalg backend
+ndarray_latest-faer = ["ndarray_v0_15-faer"]
+ndarray_v0_15-faer = ["ndarray_0_15", "faer", "faer-ext", "num-complex_0_4", "ndarray_all"]
+ndarray_v0_14-faer = ["ndarray_0_14", "faer", "faer-ext", "num-complex_0_3", "ndarray_all"]
+ndarray_v0_13-faer = ["ndarray_0_13", "faer", "faer-ext", "num-complex_0_2", "ndarray_all"]
 
 [badges]
 maintenance = { status = "actively-developed" }
