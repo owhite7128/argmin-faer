@@ -8,8 +8,8 @@
 use crate::ArgminInv;
 use crate::Error;
 use ndarray::Array2;
-use num_complex::Complex;
 use ndarray_linalg::Inverse;
+use num_complex::Complex;
 
 macro_rules! make_inv {
     ($t:ty) => {
@@ -23,7 +23,6 @@ macro_rules! make_inv {
             }
         }
 
-
         // inverse for scalars (1d solvers)
         impl ArgminInv<$t> for $t {
             #[inline]
@@ -33,11 +32,11 @@ macro_rules! make_inv {
         }
     };
 }
+
 make_inv!(f32);
 make_inv!(f64);
 make_inv!(Complex<f32>);
-make_inv!(Complex<f64>); 
-
+make_inv!(Complex<f64>);
 
 // All code that does not depend on a linked ndarray-linalg backend can still be tested as normal.
 // To avoid dublicating tests and to allow convenient testing of functionality that does not need ndarray-linalg the tests are still included here.
